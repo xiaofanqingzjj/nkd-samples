@@ -1,0 +1,19 @@
+
+/**
+ * 添加某个目录下的多个module
+ * @param dirName 要添加的目录
+ * @param projects 工程列表
+ */
+void includes(String dirName, ArrayList<String> projects) {
+    ArrayList<String> ps = new ArrayList<>()
+    projects.each {
+        ps.add("$it")
+    }
+    include ps as String[]
+    ps.each {
+        project(it).projectDir = new File("$dirName/${it.substring(1)}")
+    }
+}
+
+includes("audio-echo", [":app"])
+includes("hello-jni", [":app"])
