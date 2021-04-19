@@ -41,6 +41,7 @@ typedef struct tick_context {
     pthread_mutex_t  lock;
     int      done;
 } TickContext;
+
 TickContext g_ctx;
 
 /* This is a trivial JNI example where we use a native method

@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         StopTicks();
     }
 
+
+    // 提供一个函数给c++调用
     /*
      * A function calling from JNI to update current timer
      */
@@ -70,9 +72,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     static {
         System.loadLibrary("hello-jnicallback");
     }
+
     public native  String stringFromJNI();
     public native void startTicks();
     public native void StopTicks();

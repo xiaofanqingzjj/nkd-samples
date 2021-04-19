@@ -15,5 +15,27 @@ void includes(String dirName, ArrayList<String> projects) {
     }
 }
 
-includes("audio-echo", [":app"])
-includes("hello-jni", [":app"])
+
+void includeSub(String dirName) {
+    include ":app"
+    project(":app").projectDir = new File("$dirName/app")
+    project(":app").name = dirName
+}
+
+includeSub("audio-echo")
+includeSub("bitmap-plasma")
+includeSub("camera")
+includeSub("display-p3")
+includeSub("endless-tunnel")
+includeSub("gles3jni")
+includeSub("hello-gl2")
+includeSub("hello-jni")
+includeSub("hello-jniCallback")
+
+includeSub("hello-libs")
+includeSub("hello-neon")
+includeSub("hello-oboe")
+includeSub("native-activity")
+
+includeSub("teapots")
+
